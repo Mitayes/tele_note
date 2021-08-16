@@ -7,6 +7,31 @@
 {% block content %}
 <br>
 <div align="center">
-    <h1>Добро пожаловать в личный ежедневник</h1>
+    <h2>Добро пожаловать в личный ежедневник</h2><br>
+        <div align="center">
+            <h3>Заметки</h3>
+            <div class="w-75 p-3">
+            <table class="table table-bordered">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Заголовок</th>
+                            <th>Теги</th>
+                            <th>Текст</th>
+                            <th>Дата создания</th>
+                            <th>Дата последнего изменения</th>
+                        </tr>
+                    </thead>
+                {% for note in data %}
+                <tr>
+                    <td>{{ note.get_fields.header }}</td>
+                    <td>{{ note.get_fields.tags }}</td>
+                    <td>{{ note.get_fields.text }}</td>
+                    <td>{{ note.get_fields.date_added }}</td>
+                    <td>{{ note.get_fields.date_last_saved }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+            </div>
+        </div>
 </div>
 {% endblock %}
